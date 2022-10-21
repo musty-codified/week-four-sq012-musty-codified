@@ -1,6 +1,6 @@
 package Model;
 
-public class Staff extends Person {
+public abstract class Staff extends Person {
     private String staffId;
     private String position;
 
