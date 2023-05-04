@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 class CashierTest{
     Store store = new Store();
     String path = "/Users/decagon/Desktop/week-two-sq012-musty-codified/src/Product Data - Sheet1.csv";
-    Cashier cashier = new Cashier();
+    Cashier cashier = new Cashier(store);
     Customer customer1 = new Customer();
 @DisplayName("Cashier prints receipt")
     @Test
@@ -21,7 +21,7 @@ class CashierTest{
 //        Act
        String result = cashier.sell(store);
 //        Assert
-        Assertions.assertEquals("Thank you for your patronage", result  , ()->"Cashier did not print receipt");
+        Assertions.assertEquals("Cashier sells to customer", result  , ()->"Cashier did not print receipt");
 
     }
 

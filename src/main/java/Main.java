@@ -1,8 +1,6 @@
 import Enum.Qualification;
-import Model.Applicant;
-import Model.Cashier;
-import Model.Customer;
-import Model.Store;
+import Model.*;
+
 public class Main {
     public static void main(String[] args) {
     String path = "/Users/decagon/IdeaProjects/week-four-sq012-musty-codified/src/main/resources/Product Data - Sheet1.csv";
@@ -19,43 +17,31 @@ public class Main {
     customer2.setLastName("Musa");
     customer2.setWalletBalance(500000);
 
-        customer1.buy(store, "rice", 3);
-        customer2.buy(store,"rice", 2);
+    customer1.buy(store, "rice", 3);
+    customer2.buy(store,"rice", 2);
+    customer1.buy();
 
-        Cashier cashier1 = new Cashier();
-        Cashier cashier2 = new Cashier();
-        Cashier cashier3 = new Cashier();
+    Cashier cashier1 = new Cashier(store);
+    Thread myThread1 = new Thread(cashier1);
+    Thread myThread2 = new Thread(cashier1);
 
-//        Runnable customer1 = new Customer();
-        Thread myThread1 = new Thread(cashier1);
-        Thread myThread2 = new Thread(cashier2);
-        Thread myThread3 = new Thread(cashier3);
+    myThread1.start();
 
-//        myThread1.setName("customer 1");
-//        myThread2.setName("customer 2");
+    System.out.println(customer1.getCart());
+    System.out.println(customer2.getCart());
 
-        myThread1.start();
-        myThread2.start();
-        myThread3.start();
-
-        System.out.println(customer1.getCart());
-        System.out.println(customer2.getCart());
-
-        System.out.println(customer1.getWalletBalance());
-        System.out.println(customer2.getWalletBalance());
-
-        System.out.println(store.getCustomersList());
-//
-
-//    cashier.sell(store);
-        System.out.println(cashier1.sell(store));
-        System.out.println(customer1.buy(store, "rice", 3));
+    for(Customer customer: store.getCustomersList()){
+        System.out.println(customer);
+    }
 
     Applicant applicant = new Applicant();
     applicant.setFirstName("Abraham");
-    applicant.setLastName("Demilade");
+    applicant.setLastName("Ade");
     applicant.setPosition("Cashier");
     applicant.setQualification(Qualification.BSC);
-    System.out.println(applicant.applyPosition(applicant));
+//    System.out.println(applicant.applyPosition(applicant));
+
+    Manager manager = new Manager();
+    manager.hireCashier(applicant);
     }
 }

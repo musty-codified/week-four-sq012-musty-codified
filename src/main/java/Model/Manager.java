@@ -2,14 +2,14 @@ package Model;
 
 import Interface.ManagerInterface;
 import Enum.Qualification;
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
+
 
 public class Manager extends Staff implements ManagerInterface {
-    public Manager() {
-    }
-
-//    public Manager(String firstName, String lastName, String gender, String age, String email, long contactNo, String position, String staffId) {
-//            super(firstName, lastName, gender, age, email, contactNo, position, staffId);
-//    }
    @Override
     public String hireCashier(Applicant applicant) {
         if ((applicant.getQualification().equals(Qualification.MSC))) {

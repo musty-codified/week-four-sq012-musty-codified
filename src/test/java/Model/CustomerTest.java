@@ -22,7 +22,7 @@ class CustomerTest{
 //         Act
         String result = customer1.buy(store,"rice", 3);
 //        Assert
-        Assertions.assertEquals("buy successful",result , ()->"Buy was not successful");
+        Assertions.assertEquals("Buy successful",result , ()->"Buy was not successful");
     }
 
 
